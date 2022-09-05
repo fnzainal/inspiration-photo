@@ -1,6 +1,7 @@
 # inspiration_photo
 
 A random photo inspiration.
+Simple project flutter for submission Dicoding academy: Belajar Membuat Aplikasi Flutter untuk Pemula
 
 ## Getting Started
 
