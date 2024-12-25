@@ -1,19 +1,20 @@
+
 import 'package:flutter/material.dart';
 
 class MyInspirationPage extends StatelessWidget {
-  const MyInspirationPage({ super.key,required this.name});
+  const MyInspirationPage({ super.key,required this.number});
 
-  final String name;
+  final int number;
 
   @override
   Widget build(BuildContext context) {
-    final List<int> numberList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    final List<int> numberList = List.generate(number, (index) => index + 1);
     var width = MediaQuery.of(context).size.width;
     var height = width / 2;
 
     return Scaffold(
         appBar: AppBar(
-          title: Text('Inspiration for $name'),
+          title: Text('Show $number Inspirations'),
         ),
         body: ListView(
           children: numberList.map((number) {
@@ -25,15 +26,19 @@ class MyInspirationPage extends StatelessWidget {
                         return DetailInspirationPage(linkImage);
                       }));
                 },
+                child: Hero(
+                tag: "picture",
                 child: Container(
-                  height: height,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.fitWidth,
-                      image: NetworkImage(linkImage),
-                    ),
-                  ),
-                )
+                      height: height,
+                      decoration:
+                      BoxDecoration(
+                        image: DecorationImage(
+                          fit: BoxFit.fitWidth,
+                          image: NetworkImage(linkImage),
+                        ),
+                      ),
+                    )
+                    )
             );
           }).toList(),
         )

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:inspiration_photo/inspiration.dart';
 
 void main() {
@@ -31,23 +32,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _name = "";
+  int _number = 1;
 
   void _nextPage() {
-    const maxLengthName = 8;
-    const minLengthName = 3;
-    if(_name.isEmpty){
-      const snackBar = SnackBar(content: Text('Name can\'t be empty!'));
+    const maxNumber = 100;
+    const minNumber = 1;
+    if(_number < minNumber){
+      const snackBar = SnackBar(content: Text('Number can\'t be less than 1!'));
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    } else if(_name.length < minLengthName){
-      const snackBar = SnackBar(content: Text('Name too short! min $minLengthName chars.'));
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    }  else if(_name.length > maxLengthName){
-      const snackBar = SnackBar(content: Text('Name too long! max $maxLengthName chars.'));
+    } else if(_number > maxNumber){
+      const snackBar = SnackBar(content: Text('Number is too big! max is $maxNumber.'));
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
     } else {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return MyInspirationPage(name: _name);
+        return MyInspirationPage(number: _number);
       }));
     }
   }
@@ -65,16 +63,21 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'Enter your nick _name',
+              'Enter number of inspiration'
             ),
             Center(
                 child:Container(
                   margin: const EdgeInsets.all(15),
                   child: TextField(
                     textAlign: TextAlign.center,
+                    keyboardType: TextInputType.number,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly, // Allow only digits
+                    ],
+                    maxLength: 3,
                     onChanged: (String value) {
                       setState(() {
-                        _name = value;
+                        _number = int.parse(value);
                       });
                     },
                   )
