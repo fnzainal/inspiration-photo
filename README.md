@@ -1,7 +1,17 @@
-# inspiration_photo
+# Inspiration Photo
 
 A random photo inspiration.
-Simple project flutter for submission Dicoding academy: Belajar Membuat Aplikasi Flutter untuk Pemula
+Simple project flutter for submission Dicoding academy: **Belajar Membuat Aplikasi Flutter untuk Pemula**
+
+## Preview
+<img src="https://github.com/user-attachments/assets/71186ded-126f-4abc-8371-bd4ad8fd4307" alt="Alt text" style="width:250px; height:auto;">
+<img src="https://github.com/user-attachments/assets/d20b2f7a-fc8c-45b8-a546-5a0df12be7b7" alt="Alt text" style="width:250px; height:auto;">
+<img src="https://github.com/user-attachments/assets/f7382469-ce9a-4c24-ae8c-004c7cc29e0c" alt="Alt text" style="width:250px; height:auto;">
+
+## Special thanks
+- https://picsum.photos/ source photo
+- Gemini on Android studio, best code buddy so far
+- IDCamp 2024 and Dicoding Indonesia
 
 ## Getting Started
 
